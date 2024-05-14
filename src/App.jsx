@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Card } from './components/Card';
+import { CardApi } from './components/CardApi'
 import produtos from './constants/produtos.json';
 import { api } from "./api/rmApi";
 import style from './App.module.css';
@@ -42,49 +43,61 @@ function App() {
       <button onClick={() => setShow("graf")}>Gráfico</button>
     </div>
     <div  className={style.wrapPage}>
-      <h1>Exercícios de manutenção</h1>
       {show === "prod" &&
-        <>
+      <>
         <h2>Showroom de produtos</h2>
-    <div>
-    {produtos.map((item) => (
-      <div key={item.id}>
-        <Card
-        name={item.name}
-        desc={item.desc}
-        categoria={item.categoria}
-        value={item.value}
-        image={item.image}
-        status={item.status === "disponivel" ? (
-          <div style={{ color: "green", width: "100px", fontSize: "20px"}}>° disponível</div>
-        ) : item.status === "indisponível" ? (
-          <div style={{ color: "red", width: "100px", fontSize: "20px"}}>° indisponível</div>
-        ) : (
-          <div style={{ color: "grey", width: "100px", fontSize: "20px"}}>°</div>
-        )}
-        />
-      </div>
-    ))}
-    </div>
-        </>
-      }
+        <div style={{display: "flex", flexdirection: "row"}}>
+          <div style={{display: "flex", flexwrap: "wrap"}}>
+            {produtos.map((item) => (
+              <div key={item.id}>
+                <Card
+                name={item.name}
+                desc={item.desc}
+                categ={item.categ}
+                value={item.value}
+                image={item.image}
+                status={item.status === "disponivel" ? (
+                  <div style={{ background: "green",height: "15px",
+                  width: "15px",
+                  borderRadius: "100cap"}}></div>
+                ) : item.status === "indisponível" ? (
+                  <div style={{ background: "red", height: "15px",
+                  width: "15px",
+                  borderRadius: "100cap"}}></div>
+                ) : (
+                  <div style={{ background: "grey", height: "15px",
+                  width: "15px",
+                  borderRadius: "100cap"}}></div>
+                )}
+                />
+              </div>
+            ))}
+        </div>
+            </div>
+            </>
+          }
      {show === "api" &&
           <div className={style.Api}>
-          <h2>Rick and Morty API</h2>
-          
+          <h2 style={{fontSize: "31px"}}>Rick and Morty API</h2>
             <div>
-
-               <input type="text" placeholder="1/43" value={page} onChange={(eventPage) => setPage(eventPage.target.value)}/>
-               <br />
-               <input type="text" placeholder="Name" value={searchName} onChange={(eventName) => setName(eventName.target.value)}/>
+              <div style={{display: "inline-block"}}>
+                <h5>Número página</h5>
+                <input type="text" placeholder="1/43" value={page} onChange={(eventPage) => setPage(eventPage.target.value)}/>
+                <br />
+                <h5>Nome do personagem</h5>
+                <input type="text" placeholder="Name" value={searchName} onChange={(eventName) => setName(eventName.target.value)}/>
+            </div> 
             </div>
             <div className={style.inlineElements}>
             {data.map((item) => { 
                 return(
                 <div key={item.id}>
-                  <Card name={item.name} 
+                  <CardApi name={item.name} 
+                  status={item.status}
+                  type={item.type}
                   desc={item.species}
                   value={item.value} 
+                  gender={item.gender}
                   image={item.image} />
                   {/* <button onClick={() => {}}>Info</button> */}
                 </div>
@@ -117,30 +130,6 @@ function App() {
       
       <div>
         <h2>Gráfico 1</h2>
-        <div className={style.graf}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart
-                  width={500}
-                  height={300}
-                  data={data}
-                  margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                  }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                  <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-                </LineChart>
-              </ResponsiveContainer>
-
-        </div>
         <h2>Gráfico 2</h2>
       </div>
       </>

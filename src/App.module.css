@@ -22,11 +22,11 @@
 .Api{
   display: flex;
   flex-direction: row; 
-  flex-wrap: wrap; 
   }
   
 .inlineElements {
   display: flex;
+  flex-wrap: wrap; /* Permitir que os elementos quebrem para a próxima linha */
   }
 
 .maps{
