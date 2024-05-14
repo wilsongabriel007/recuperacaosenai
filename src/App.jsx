@@ -136,9 +136,8 @@ function App() {
     )}
      {show === "graf" && (
       <>
-      
       <div>
-        <h2>Gráfico 1</h2>
+        <h2>Gráfico 1</h2>      
         <h2>Gráfico 2</h2>
       </div>
       </>
