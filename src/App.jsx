@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Card } from './components/Card';
-import { CardApi } from './components/CardApi'
+import { CardApi } from './components/CardApi';
 import produtos from './constants/produtos.json';
 import { api } from "./api/rmApi";
 import style from './App.module.css';
+
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -78,11 +79,12 @@ function App() {
           }
      {show === "api" &&
           <div className={style.Api}>
-          <h2 style={{fontSize: "31px"}}>Rick and Morty API</h2>
+          <h2 style={{fontSize: "31px", padding: "17px", gap:"10px"}}>Rick and Morty API</h2>
             <div>
               <div style={{display: "inline-block"}}>
                 <h5>Número página</h5>
                 <input type="text" placeholder="1/43" value={page} onChange={(eventPage) => setPage(eventPage.target.value)}/>
+                <br />
                 <br />
                 <h5>Nome do personagem</h5>
                 <input type="text" placeholder="Name" value={searchName} onChange={(eventName) => setName(eventName.target.value)}/>
@@ -92,13 +94,20 @@ function App() {
             {data.map((item) => { 
                 return(
                 <div key={item.id}>
-                  <CardApi name={item.name} 
-                  status={item.status}
+                  <CardApi 
+                  name={item.name} 
+                  species={item.species}
                   type={item.type}
-                  desc={item.species}
-                  value={item.value} 
                   gender={item.gender}
-                  image={item.image} />
+                  image={item.image} 
+                  status={item.status === "Alive" ? (
+                  <div style={{ color: "green"}}>Alive</div>
+                ) : item.status === "Dead" ? (
+                  <div style={{ color: "red"}}>Dead</div>
+                ) : (
+                  <div style={{ color: "grey"}}>unknown</div>
+                )}
+                  />
                   {/* <button onClick={() => {}}>Info</button> */}
                 </div>
                 )
