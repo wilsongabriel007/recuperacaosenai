@@ -4,9 +4,14 @@ import { CardApi } from './components/CardApi';
 import produtos from './constants/produtos.json';
 import { api } from "./api/rmApi";
 import style from './App.module.css';
+import dataGrafLine from './constants/dataLine.json';
+import dataGrafRadar from './constants/dataRadar.json';
 
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
+
+
 
 import 'leaflet/dist/leaflet.css';
 
@@ -135,11 +140,44 @@ function App() {
         </div>
     )}
      {show === "graf" && (
-      <>
+      <>  
       <div>
-        <h2>Gráfico 1</h2>      
+        <h2>Gráfico 1</h2>    
+        <div>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart
+              width={500}
+              height={300}
+              data={dataGrafLine}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+              <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
         <h2>Gráfico 2</h2>
+        <div>
+            <ResponsiveContainer width="100%" height={300}>
+            <RadarChart cx="50%" cy="50%" outerRadius="80%" data={dataGrafRadar}>
+              <PolarGrid />
+              <PolarAngleAxis dataKey="subject" />
+              <PolarRadiusAxis />
+              <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+            </RadarChart>
+          </ResponsiveContainer>
       </div>
+        </div>
       </>
      )}
     </div>
