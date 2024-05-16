@@ -54,3 +54,8 @@ https://recharts.org/en-US/
 https://reactrouter.com/en/main/start/tutorial
 
 
+
+fiz com o gabriel
+
+
+
