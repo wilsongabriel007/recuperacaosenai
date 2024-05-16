@@ -55,7 +55,6 @@ https://reactrouter.com/en/main/start/tutorial
 
 
 
-fiz com o gabriel
 
 
 
