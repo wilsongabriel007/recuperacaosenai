@@ -19,29 +19,29 @@
   },
   {
     "id": 3,
-    "name": "Batom",
+    "name": "Brinco",
     "status": "disponivel",
-    "desc": "Batom Mate marry kay",
+    "desc": "Brinco unissex prata",
     "categ": "cosmeticos",
     "value": "59.99",
-    "image": "https://pimg.amr.marykaycdn.com/Hero/10000/BR_MATTE_MKAY_RED%20AMORE_RGB.png"
+    "image": "https://images.tcdn.com.br/img/img_prod/487260/brinco_masculino_argola_cruz_prata_5003_2_4f1b9f33e8279dbec79b84439b31acde.jpg"
   },
   {
     "id": 4,
-    "name": "Blush",
+    "name": "Bolsa unissex",
     "status": "disponivel",
-    "desc": "Blush Mary Kay ChromaFusion® 4,8g",
+    "desc": "Bolsa Hugo Boss",
     "categ": "cosmeticos",
     "value": "46.90",
-    "image": "https://marykay.vtexassets.com/arquivos/ids/155738-1600-auto?v=638236615502900000&width=1600&height=auto&aspect=true"
+    "image": "https://photos.enjoei.com.br/bolsa-masculina-hugo-boss/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8zMTUzMTg4Ni9mNjlmODc1OWIwMTU3NmJlYmJkZWQ4ODFiNzg5YjBmOS5qcGc"
   },
   {
     "id": 5,
-    "name": "Carmed Fini",
+    "name": "212 Vip Black",
     "status": "disponivel",
-    "desc": "Hidratante Labial Carmed Fini Beijos 10g",
+    "desc": "Perfume de luxo",
     "categ": "cosmeticos",
-    "value": "25.90",
-    "image": "https://www.comprecimed.com.br/cdn/shop/files/136126.png?v=1702302683&width=1000"
+    "value": "250.90",
+    "image": "https://cdn.sistemawbuy.com.br/arquivos/feb5eb39b3a2004abcc3bcd79041ba64/produtos/6472574d237a7/20230527161733-6472574d53828.jpg"
   }
 ]
